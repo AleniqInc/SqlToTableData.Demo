@@ -1,0 +1,28 @@
+<div style="text-align: center">
+
+  <h1 id="tableLabel">List of cities: Pre-defined model returned from API</h1>
+
+  <p>This component demonstrates fetching data from the server.</p>
+
+  <p *ngIf="!cities"><em>Loading... Please refresh once the ASP.NET backend has started. See <a href="https://aka.ms/jspsintegrationangular">https://aka.ms/jspsintegrationangular</a> for more details.</em></p>
+
+  <table *ngIf="cities" class="center">
+    <thead>
+      <tr>
+        <th style="text-align: right;">ID</th>
+        <th style="text-align: left;">Name</th>
+        <th style="text-align: left;">Country</th>
+        <th style="text-align: right;">Elevation</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let city of cities">
+        <td style="text-align: right;">{{ city.id }}</td>
+        <td style="text-align: left;">{{ city.name }}</td>
+        <td style="text-align: left;">{{ city.country }}</td>
+        <td style="text-align: right;">{{ city.elevation }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>

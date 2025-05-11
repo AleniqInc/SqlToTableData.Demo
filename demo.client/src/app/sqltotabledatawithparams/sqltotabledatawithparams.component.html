@@ -1,0 +1,30 @@
+<div style="text-align: center">
+
+  <h1 id="tableLabel">List of cities: From SQL </h1>
+
+  <p>This component demonstrates fetching SQL query results from an API using SqlToTableData package.</p>
+  <p>SQL queries are stored in the database table QUERY and ID is provided in the API call.</p>
+  <p>It also has a parameter sent to the API that makes the query only select cities with elevation > 10 meters </p>
+
+  <p *ngIf="!columns"><em>Loading... Please refresh once the ASP.NET backend has started. See <a href="https://aka.ms/jspsintegrationangular">https://aka.ms/jspsintegrationangular</a> for more details.</em></p>
+
+  <table>
+    <thead>
+      <tr>
+        <th *ngFor="let column of columns; index as i" (click)="sort(column)">
+          {{ titles[i] }}
+          <span *ngIf="sortColumn === column">
+            {{ sortDirection === 'asc' ? '▲' : '▼' }}
+          </span>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let row of data">
+        <td *ngFor="let column of columns">{{ row[column] }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+
